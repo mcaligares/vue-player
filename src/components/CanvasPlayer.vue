@@ -2,8 +2,9 @@
 import { onMounted, ref } from 'vue'
 import { useVideo } from './video'
 
+const frame = ref(0)
 const canvas = ref<HTMLCanvasElement>()
-const { initialize, start, pause } = useVideo(canvas)
+const { initialize, start, pause, gotoFrame } = useVideo(canvas)
 
 onMounted(() => {
   console.log('mounted')
@@ -22,6 +23,10 @@ onMounted(() => {
       </button>
       <button @click="pause">
         pause
+      </button>
+      <input v-model="frame" />
+      <button @click="gotoFrame(frame)">
+        goto
       </button>
     </div>
   </div>
