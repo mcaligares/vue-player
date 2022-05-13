@@ -38,7 +38,7 @@ export const useVideo = (canvas: Ref<HTMLCanvasElement | undefined>) => {
     if (context) {
       video1.frame = 0
       video2.frame = 0
-      intervalProcess = setInterval(() => processVideos(context), FRAME_RATE)
+      intervalProcess = setInterval(() => processVideos(context), 1000 / FRAME_RATE)
     }
     playing = true
   }
@@ -89,9 +89,7 @@ export const useVideo = (canvas: Ref<HTMLCanvasElement | undefined>) => {
     const context = canvas?.value?.getContext('2d')
     if (context) {
       video1.frame = frame
-      setTimeout(() => {
-        drawVideoFrame(context, video1)
-      }, 0);
+      drawVideoFrame(context, video1)
       drawFramesCount(context, video1.frame, video2.frame)
     }
   }

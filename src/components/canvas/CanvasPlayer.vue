@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { useVideo } from './video'
+import { useVideo } from './canvasPlayer'
 
 const frame = ref(0)
 const canvas = ref<HTMLCanvasElement>()
